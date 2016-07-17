@@ -6,8 +6,13 @@ Meteor.startup(() => {
 });
 
 Meteor.methods({
-          getEntirePatchingList: function () {
+          getEntirePatchingList: function() {
               this.unblock();
-              return Meteor.http.call("GET", 'http://localhost:9080/booster-services/testEvent/test');
+              return Meteor.http.call("GET", 'http://localhost:9080/booster-services/booster/retrieve/all');
+          },
+          getEntirePatchingListByOwner: function(owner) {
+              this.unblock();
+              return Meteor.http.call("GET", 'http://localhost:9080/booster-services/booster/retrieve/owners/' + owner);
           }
+
   });
