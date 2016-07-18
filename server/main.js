@@ -13,6 +13,10 @@ Meteor.methods({
           getEntirePatchingListByOwner: function(owner) {
               this.unblock();
               return Meteor.http.call("GET", 'http://localhost:9080/booster-services/booster/retrieve/owners/' + owner);
+          },
+          searchServerByName: function(serverName) {
+            this.unblock();
+            return Meteor.http.call("GET", 'http://localhost:9080/booster-services/booster/retrieve/servers/' + serverName);
           }
 
   });
