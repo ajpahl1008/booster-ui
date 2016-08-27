@@ -8,15 +8,15 @@ Meteor.startup(() => {
 Meteor.methods({
           getEntirePatchingList: function() {
               this.unblock();
-              return Meteor.http.call("GET", 'http://localhost:9080/booster-services/booster/retrieve/all');
+              return Meteor.http.call("GET", 'https://booster.pahlsoft.com:9443/booster-services/booster/retrieve/servers/all');
           },
           getEntirePatchingListByOwner: function(owner) {
               this.unblock();
-              return Meteor.http.call("GET", 'http://localhost:9080/booster-services/booster/retrieve/owners/' + owner);
+              return Meteor.http.call("GET", 'https://booster.pahlsft.com:9443/booster-services/booster/retrieve/owners/' + owner);
           },
           searchServerByName: function(serverName) {
             this.unblock();
-            return Meteor.http.call("GET", 'http://localhost:9080/booster-services/booster/retrieve/servers/' + serverName);
+            return Meteor.http.call("GET", 'https://booster.pahlsoft.com:9443/booster-services/booster/retrieve/servers/' + serverName);
           }
 
   });

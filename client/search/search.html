@@ -3,7 +3,59 @@
 
 	</div>
 
-<h1>Search</h1>
-<!-- {{>ServerInfo}} -->
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Search</h3>
+
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-xs btn-primary active">
+					<input type="radio" sname="_serverSelected" id="searchOpt1">Server</label>
+				<label class="btn btn-xs btn-primary">
+					<input type="radio" name="_uaidSelected" id="searchOpt2">UAID</label>
+				<label class="btn btn-xs btn-primary">
+					<input type="radio" name="_ownerSelected" id="searchOpt3">Owner</label>
+			</div>
+
+		</div>
+
+		{{#if serverSearch}} {{>serverInfo}} {{/if}}
+
+	</div>
+</template>
+
+
+<template name="serverSearch">
+	<div class="row">
+		<div class='col-sm-3'>ServerName:
+			<p></p>
+			<input id='serverName' type="text" class="span1-12 serverName" placeholder="{Server Name}">
+			<p></p>
+		</div>
+	</div>
+
+</template>
+
+
+<template name="uaidSearch">
+	<div class="row">
+		<div class='col-sm-3'>UAID:
+			<p></p>
+			<input id='uaid' type="text" class="span1-12 uaId" placeholder="{UAID-00000}">
+			<p></p>
+		</div>
+
+	</div>
+
+</template>
+
+<template name="ownerSearch">
+	<div class="row">
+		<div class='col-sm-3'>Owner:
+			<p></p>
+			<input id='uaid' type="text" class="span1-12 ownerId" placeholder="{fx1222}">
+			<p></p>
+		</div>
+
+	</div>
 
 </template>

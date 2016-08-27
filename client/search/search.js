@@ -13,15 +13,17 @@ Template.search.rendered =function searchOnCreated() {
 
 
 if (Meteor.isClient) {
-  Template.search.helpers({
-
-      server_list: function(searchString) {
-          Meteor.call('searchServerByName', function(error,results){
-    //          serverInfo = results.data;
-      //        console.log(serverInfo);
-              Session.set('retrievedServers', results.data);
-          });
-      }
-  });
+  // Template.search.helpers({
+  //     isChecked: function() {
+  //
+  //     },
+  //     server_list: function(searchString) {
+  //         Meteor.call('searchServerByName', function(error,results){
+  //   //          serverInfo = results.data;
+  //     //        console.log(serverInfo);
+  //             Session.set('retrievedServers', results.data);
+  //         });
+  //     }
+  // });
 
 }

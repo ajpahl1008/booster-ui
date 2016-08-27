@@ -1,4 +1,4 @@
-Template.serverInfo.rendered =function myqueueOnCreated() {
+Template.serverInfo.rendered =function serverInfoOnCreated() {
   var serverInfo;
   if (Meteor.isClient) {
      Meteor.call('getEntirePatchingList', function(error, results) {
