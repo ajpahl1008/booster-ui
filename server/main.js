@@ -10,6 +10,7 @@ Meteor.startup(() => {
          URL_PREFIX="https://booster.pahlsoft.com:9443";
          modeAnnouncement = 'Starting Meteor App - Booster - PROD';
      } else {
+         URL_PREFIX="https://booster.pahlsoft.com:9443";
          modeAnnouncement = 'Starting Meteor App - Booster - PROD';
      }
          console.log(modeAnnouncement);
@@ -28,5 +29,17 @@ Meteor.methods({
           searchServerByName: function(serverName) {
             this.unblock();
             return Meteor.http.call("GET", URL_PREFIX + '/booster-services/booster/retrieve/servers/' + serverName);
+          },
+          getOwnerList: function() {
+            this.unblock();
+            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/booster/retrieve/owners/all')
+          },
+          getUaidList: function() {
+            this.unblock();
+            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/booster/retrieve/uaids/all')
+          },
+          getPatchList: function() {
+            this.unblock();
+            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/booster/retrieve/patches/all')
           }
   });

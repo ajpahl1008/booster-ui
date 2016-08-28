@@ -1,5 +1,4 @@
-/* 1 */
-{
+[{
     "_id" : "server0000",
     "serverName" : "server0000.company.com",
     "changeRecord" : "CR123450",
@@ -21,8 +20,7 @@
     "patchingRequired" : true,
     "patchingStatus" : "CR: Pending Approval"
 }
-
-/* 2 */
+,
 {
     "_id" : "server0001",
     "serverName" : "server0001.company.com",
@@ -45,8 +43,7 @@
     "patchingRequired" : true,
     "patchingStatus" : "CR: Pending Approval"
 }
-
-/* 3 */
+,
 {
     "_id" : "server0009",
     "serverName" : "server0009.company.com",
@@ -69,8 +66,7 @@
     "patchingRequired" : true,
     "patchingStatus" : "CR: Approved"
 }
-
-/* 4 */
+,
 {
     "_id" : "server00009",
     "serverName" : "server0009.company.com",
@@ -93,8 +89,7 @@
     "patchingRequired" : true,
     "patchingStatus" : "CR: Approved"
 }
-
-/* 5 */
+,
 {
     "_id" : "server00012",
     "serverName" : "server0012.company.com",
@@ -117,8 +112,7 @@
     "patchingRequired" : true,
     "patchingStatus" : "CR: Approved"
 }
-
-/* 6 */
+,
 {
     "_id" : "server00013",
     "serverName" : "server00013.company.com",
@@ -141,8 +135,7 @@
     "patchingRequired" : true,
     "patchingStatus" : "CR: Approved"
 }
-
-/* 7 */
+,
 {
     "_id" : "server01234",
     "serverName" : "server01234.company.com",
@@ -165,8 +158,7 @@
     "patchingRequired" : true,
     "patchingStatus" : "CR: Approved"
 }
-
-/* 8 */
+,
 {
     "_id" : "server0002",
     "serverName" : "server0002.company.com",
@@ -189,8 +181,7 @@
     "patchingRequired" : true,
     "patchingStatus" : "CR: Approved"
 }
-
-/* 9 */
+,
 {
     "_id" : "server0003",
     "serverName" : "server0003.company.com",
@@ -213,8 +204,7 @@
     "patchingRequired" : true,
     "patchingStatus" : "CR: Approved"
 }
-
-/* 10 */
+,
 {
     "_id" : "server0004",
     "serverName" : "server0004.company.com",
@@ -237,8 +227,7 @@
     "patchingRequired" : true,
     "patchingStatus" : "CR: Approved"
 }
-
-/* 11 */
+,
 {
     "_id" : "server0010",
     "serverName" : "server0010.company.com",
@@ -260,4 +249,4 @@
     "rebootRequired" : true,
     "patchingRequired" : true,
     "patchingStatus" : "CR: Approved"
-}
+}]
