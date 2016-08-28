@@ -20,26 +20,35 @@ Meteor.startup(() => {
 Meteor.methods({
           getEntirePatchingList: function() {
               this.unblock();
-              return Meteor.http.call("GET", URL_PREFIX + '/booster-services/booster/retrieve/servers/all');
+              return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/booster/getAll');
           },
           getEntirePatchingListByOwner: function(owner) {
               this.unblock();
-              return Meteor.http.call("GET", URL_PREFIX + '/booster-services/booster/retrieve/owners/' + owner);
+              return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/getBoosterByOwners/' + owner);
           },
           searchServerByName: function(serverName) {
             this.unblock();
-            return Meteor.http.call("GET", URL_PREFIX + '/booster-services/booster/retrieve/servers/' + serverName);
+            return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/getBoosterByServerName/' + serverName);
           },
           getOwnerList: function() {
             this.unblock();
-            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/booster/retrieve/owners/all')
+            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/retrieve/owners/getAll');
           },
           getUaidList: function() {
             this.unblock();
-            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/booster/retrieve/uaids/all')
+            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/retrieve/uaids/getAll');
           },
           getPatchList: function() {
             this.unblock();
-            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/booster/retrieve/patches/all')
+            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/retrieve/patches/getAll');
+          },
+          getPatchById: function(patchId) {
+            this.unblock();
+            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/retrieve/patches/getPatchById' + patchId);
+          },
+          getPatchByPlatform: function(platform) {
+            this.unblock();
+            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/retrieve/patches/getPatchesByPlatform' + platform);
           }
+
   });
