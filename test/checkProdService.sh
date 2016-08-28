@@ -1,1 +1,1 @@
-curl -X GET -H "Accept: application/json" http://booster.pahlsoft.com:9080/booster-services/booster/retrieve/servers/all
+curl -X GET -H "Accept: application/json" https://booster.pahlsoft.com:9443/booster-services/booster/retrieve/servers/all
