@@ -1,14 +1,20 @@
 import { Meteor } from 'meteor/meteor';
 var URL_PREFIX;
+var modeAnnouncement;
 
 Meteor.startup(() => {
      if (process.env.MODE == "DEV") {
          URL_PREFIX="http://localhost:9080";
-     } else {
+         modeAnnouncement = 'Starting Meteor App - Booster - ' + process.env.MODE;
+     } else if (process.env.MODE == "") {
          URL_PREFIX="https://booster.pahlsoft.com:9443";
+         modeAnnouncement = 'Starting Meteor App - Booster - PROD';
+     } else {
+         modeAnnouncement = 'Starting Meteor App - Booster - PROD';
      }
-  console.log('Starting Meteor App - Booster - ' + process.env.MODE);
+         console.log(modeAnnouncement);
 });
+
 
 Meteor.methods({
           getEntirePatchingList: function() {
@@ -17,11 +23,10 @@ Meteor.methods({
           },
           getEntirePatchingListByOwner: function(owner) {
               this.unblock();
-              return Meteor.http.call("GET", 'https://booster.pahlsft.com:9443/booster-services/booster/retrieve/owners/' + owner);
+              return Meteor.http.call("GET", URL_PREFIX + '/booster-services/booster/retrieve/owners/' + owner);
           },
           searchServerByName: function(serverName) {
             this.unblock();
-            return Meteor.http.call("GET", 'https://booster.pahlsoft.com:9443/booster-services/booster/retrieve/servers/' + serverName);
+            return Meteor.http.call("GET", URL_PREFIX + '/booster-services/booster/retrieve/servers/' + serverName);
           }
-
   });
