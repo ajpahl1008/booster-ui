@@ -7,20 +7,37 @@
 		<div class="panel-heading">
 			<h3 class="panel-title">Search</h3>
 
-			<div class="btn-group" data-toggle="buttons">
-				<label class="btn btn-xs btn-primary active">
-					<input type="radio" sname="_serverSelected" id="searchOpt1">Server</label>
-				<label class="btn btn-xs btn-primary">
-					<input type="radio" name="_uaidSelected" id="searchOpt2">UAID</label>
-				<label class="btn btn-xs btn-primary">
-					<input type="radio" name="_ownerSelected" id="searchOpt3">Owner</label>
-			</div>
+			<!--<div class="btn-group" data-toggle="buttons">-->
+				<!--<label class="btn btn-xs btn-primary active">-->
+					<!--<input type="radio" sname="_serverSelected" id="server">Server</label>-->
+				<!--<label class="btn btn-xs btn-primary">-->
+					<!--<input type="radio" name="_uaidSelected" id="uaid">UAID</label>-->
+				<!--<label class="btn btn-xs btn-primary">-->
+					<!--<input type="radio" name="_ownerSelected" id="owner">Owner</label>-->
+			<!--</div>-->
+
+            <div class="radio">
+                <label for="radio" class="control-label"></label>
+                <label class="radio-inline">
+                    <input type="radio" name="radioGroup" id="server" value="server"> Server</label>
+                <label class="radio-inline">
+                    <input type="radio" name="radioGroup" id="uaid" value="uaid"> Uaid</label>
+                <label class="radio-inline">
+                    <input type="radio" name="radioGroup" id="owner" value="owner"> Owner</label>
+            </div>
 
 		</div>
 
-		{{#if serverSearch}} {{>serverInfo}} {{/if}}
+        <div class="col-lg-1">
+            {{#if server}} {{>serverSearch}} {{/if}}
+            {{#if uaid}} {{>uaidSearch}} {{/if}}
+            {{#if owner}} {{>ownerSearch}} {{/if}}
+        </div>
 
-	</div>
+
+
+
+    </div>
 </template>
 
 

@@ -16,7 +16,6 @@ Meteor.startup(() => {
          console.log(modeAnnouncement);
 });
 
-
 Meteor.methods({
           getEntirePatchingList: function() {
               this.unblock();
