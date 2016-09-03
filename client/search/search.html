@@ -1,69 +1,75 @@
 <template name="search">
 	<div class="page-header">
 
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Booster Item Search</h3>
+
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-ms btn-success btn-primary active">
+                        <input type="radio" name="radioGroup" id="server">  Server  </label>
+                    <label class="btn btn-ms btn-success btn-primary">
+                        <input type="radio" name="radioGroup" id="uaid">  UAID  </label>
+                    <label class="btn btn-ms btn-success btn-primary">
+                        <input type="radio" name="radioGroup" id="owner">  Owner  </label>
+                </div>
+            </div>
+            <div class="panel-body">
+                {{#if server}} {{>serverSearch}} {{/if}}
+                {{#if uaid}} {{>uaidSearch}} {{/if}}
+                {{#if owner}} {{>ownerSearch}} {{/if}}
+            </div>
+
+        </div>
 	</div>
 
-	<div class="panel panel-primary">
-		<div class="panel-heading">
-			<h3 class="panel-title">Search</h3>
-
-			<div class="btn-group" data-toggle="buttons">
-				<label class="btn btn-ms btn-success btn-primary active">
-					<input type="radio" name="radioGroup" id="server">  Server  </label>
-				<label class="btn btn-ms btn-success btn-primary">
-					<input type="radio" name="radioGroup" id="uaid">  UAID  </label>
-				<label class="btn btn-ms btn-success btn-primary">
-					<input type="radio" name="radioGroup" id="owner">  Owner  </label>
-			</div>
 
 
-		</div>
+    {{>serverInfo}}
 
-        <div class="col-lg-1">
-            {{#if server}} {{>serverSearch}} {{/if}}
-            {{#if uaid}} {{>uaidSearch}} {{/if}}
-            {{#if owner}} {{>ownerSearch}} {{/if}}
-        </div>
-
-
-
-
-    </div>
 </template>
 
 
 <template name="serverSearch">
-	<div class="row">
-		<div class='col-sm-3'>ServerName:
-			<p></p>
-			<input id='serverName' type="text" class="span1-12 serverName" placeholder="{Server Name}">
-			<p></p>
-		</div>
-	</div>
-
+        <div class="panel-body col-sm-12">
+            <div class="panel panel-info">
+                <div class="panel-heading col-sm-12">
+                    <h3 class="panel-title">Server Name</h3>
+                    <div class="panel-body">
+                        <input id='serverName' type="text" class="span1-12" placeholder="{Server Name}">
+                    </div>
+                </div>
+            </div>
+        </div>
 </template>
 
 
 <template name="uaidSearch">
-	<div class="row">
-		<div class='col-sm-3'>UAID:
-			<p></p>
-			<input id='uaid' type="text" class="span1-12 uaId" placeholder="{UAID-00000}">
-			<p></p>
-		</div>
-
-	</div>
+    <div class="panel-body col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel-heading col-sm-12">
+                <h3 class="panel-title">UAID</h3>
+                <div class="panel-body">
+                    <input id='uaId' type="text" class="span1-12" placeholder="{UAID-0000}">
+                </div>
+            </div>
+        </div>
+    </div>
 
 </template>
 
 <template name="ownerSearch">
-	<div class="row">
-		<div class='col-sm-3'>Owner:
-			<p></p>
-			<input id='uaid' type="text" class="span1-12 ownerId" placeholder="{fx1222}">
-			<p></p>
-		</div>
 
-	</div>
+    <div class="panel-body col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel-heading col-sm-12">
+                <h3 class="panel-title">Owner ID</h3>
+                <div class="panel-body">
+                    <input id='ownerId' type="text" class="span1-12" placeholder="{fx12345}">
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </template>

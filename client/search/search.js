@@ -1,6 +1,6 @@
 
 Template.search.onRendered(function () {
-    Session.set('server',false);
+    Session.set('server',true);
     Session.set('uaid',false);
     Session.set('owner',false);
 });
