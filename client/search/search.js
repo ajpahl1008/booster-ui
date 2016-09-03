@@ -21,6 +21,21 @@ Template.search.events({
         Session.set('uaid', false);
         Session.set('owner', true);
     },
+    'keypress input.serverName': function (evt, template) {
+        if (evt.which === 13) {
+            console.log("Looking for " + template.find('.serverName').value);
+        }
+    },
+    'keypress input.uaId': function (evt, template) {
+        if (evt.which === 13) {
+            console.log("Looking for " + template.find('.uaId').value);
+        }
+    },
+    'keypress input.ownerId': function (evt, template) {
+        if (evt.which === 13) {
+            console.log("Looking for " + template.find('.ownerId').value);
+        }
+    },
 
 
 });
@@ -59,4 +74,5 @@ if (Meteor.isClient) {
             }
         }
     });
+
 }
