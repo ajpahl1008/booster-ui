@@ -1,5 +1,5 @@
 <template name="search">
-	<div class="page-header">
+    <div class="page-header">
 
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -7,40 +7,38 @@
 
                 <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-ms btn-success btn-primary active">
-                        <input type="radio" name="radioGroup" id="server">  Server  </label>
+                        <input type="radio" name="radioGroup" id="server"> Server </label>
                     <label class="btn btn-ms btn-success btn-primary">
-                        <input type="radio" name="radioGroup" id="uaid">  UAID  </label>
+                        <input type="radio" name="radioGroup" id="uaid"> UAID </label>
                     <label class="btn btn-ms btn-success btn-primary">
-                        <input type="radio" name="radioGroup" id="owner">  Owner  </label>
+                        <input type="radio" name="radioGroup" id="owner"> Owner </label>
                 </div>
+                <label class="btn-warning pull-right" id="resetSearch">Reset</label>
             </div>
             <div class="panel-body">
                 {{#if server}} {{>serverSearch}} {{/if}}
                 {{#if uaid}} {{>uaidSearch}} {{/if}}
                 {{#if owner}} {{>ownerSearch}} {{/if}}
             </div>
-
         </div>
-	</div>
-
-
-
-    {{>serverInfo}}
+    </div>
+    {{>searchResult}}
 
 </template>
 
 
 <template name="serverSearch">
-        <div class="panel-body col-sm-12">
-            <div class="panel panel-info">
-                <div class="panel-heading col-sm-12">
-                    <h3 class="panel-title">Server Name</h3>
-                    <div class="panel-body">
-                        <input type="text" class="serverName" placeholder="{Server Name}">
-                    </div>
+    <div class="panel-body col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel-heading col-sm-12">
+                <h3 class="panel-title">Server Name</h3>
+
+                <div class="panel-body">
+                    <input type="text" class="serverName" placeholder="{ServerName}">
                 </div>
             </div>
         </div>
+    </div>
 </template>
 
 
@@ -49,6 +47,7 @@
         <div class="panel panel-info">
             <div class="panel-heading col-sm-12">
                 <h3 class="panel-title">UAID</h3>
+
                 <div class="panel-body">
                     <input type="text" class="uaId" placeholder="{UAID-0000}">
                 </div>
@@ -64,6 +63,7 @@
         <div class="panel panel-info">
             <div class="panel-heading col-sm-12">
                 <h3 class="panel-title">Owner ID</h3>
+
                 <div class="panel-body">
                     <input type="text" class="ownerId" placeholder="{fx12345}">
                 </div>
@@ -72,4 +72,52 @@
     </div>
 
 
+</template>
+
+<template name="searchResult">
+    {{#each server in search_results}}
+        <div class="col-sm-12">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="label label-danger pull-right">{{server.patchingStatus}}</span>
+
+                    <h3 class="panel-title">{{server.serverName}}</h3> {{#if server.patchingRequired}}
+                    <button type="button" class="btn btn-xs btn-warning glyphicon glyphicon-refresh  patchServer">
+                        Patch
+                    </button>
+                {{/if}} {{#if server.rebootRequired}}
+                    <button type="button" class="btn btn-xs btn-danger glyphicon glyphicon-refresh  rebootServer">
+                        Reboot
+                    </button>
+                {{/if}}
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        <span class="label label-info">{{server.changeRecord}}</span>
+                        <span class="label label-info">{{server.changeRecordStatus}}</span>
+
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Maintenance Information</h3>
+
+                                <div class="panel-body">
+                                    <div class="col-sm-2">
+                                        <h5>Last Patch Date: </h5> {{server.lastPatchingDate}} </div>
+                                    <div class="col-sm-2">
+                                        <h5>Owner: </h5> {{server.serverOwnerName}} {{server.serverOwnerID}}</div>
+                                    <div class="col-sm-4">
+                                        <h5>Patching Information: </h5> {{server.patchInfo}} </div>
+                                    <div class="col-sm-4">
+                                        <h5>Impacted Applications: </h5> {{server.serverUAIDs}} </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    {{/each}}
 </template>

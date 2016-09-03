@@ -23,11 +23,15 @@ Meteor.methods({
           },
           getEntirePatchingListByOwner: function(owner) {
               this.unblock();
-              return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/getBoosterByOwners/' + owner);
+              return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/booster/getBoosterByOwners/' + owner);
           },
-          searchServerByName: function(serverName) {
-            this.unblock();
-            return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/getBoosterByServerName/' + serverName);
+          getEntirePatchingListByServerName: function(serverName) {
+              this.unblock();
+              return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/booster/getBoosterByServername/' + serverName);
+          },
+         getEntirePatchingListByUaid: function(uaid) {
+              this.unblock();
+              return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/booster/getBoosterByUaid/' + uaid);
           },
           getOwnerList: function() {
             this.unblock();
