@@ -14,6 +14,7 @@ Meteor.startup(() => {
          modeAnnouncement = 'Starting Meteor App - Booster - PROD';
      }
          console.log(modeAnnouncement);
+
 });
 
 Meteor.methods({
@@ -29,10 +30,14 @@ Meteor.methods({
               this.unblock();
               return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/booster/getBoosterByServername/' + serverName);
           },
-         getEntirePatchingListByUaid: function(uaid) {
+         getEntirePatchingListByUaid: function(uaId) {
               this.unblock();
-              return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/booster/getBoosterByUaid/' + uaid);
+              return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/booster/getBoosterByUaid/' + uaId);
           },
+        getEntirePatchingListByPatchId: function(patchId) {
+            this.unblock();
+            return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/booster/getBoosterByPatchId/' + patchId);
+        },
           getOwnerList: function() {
             this.unblock();
             return Meteor.http.call("GET", URL_PREFIX + 'booster-services/retrieve/owners/getAll');

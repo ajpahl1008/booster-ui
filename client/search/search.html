@@ -6,19 +6,22 @@
                 <h3 class="panel-title">Booster Item Search</h3>
 
                 <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-ms btn-success btn-primary active">
-                        <input type="radio" name="radioGroup" id="server"> Server </label>
                     <label class="btn btn-ms btn-success btn-primary">
-                        <input type="radio" name="radioGroup" id="uaid"> UAID </label>
+                        <input type="radio" name="radioGroup" id="serverRadioButton">Server</label>
                     <label class="btn btn-ms btn-success btn-primary">
-                        <input type="radio" name="radioGroup" id="owner"> Owner </label>
+                        <input type="radio" name="radioGroup" id="uaidRadioButton">App</label>
+                    <label class="btn btn-ms btn-success btn-primary">
+                        <input type="radio" name="radioGroup" id="ownerRadioButton">Owner</label>
+                    <label class="btn btn-ms btn-success btn-primary">
+                        <input type="radio" name="radioGroup" id="patchRadioButton">Patch</label>
                 </div>
-                <label class="btn-warning pull-right" id="resetSearch">Reset</label>
+                <label class="btn btn-ms btn-warning pull-right" id="resetSearch">Clear</label>
             </div>
             <div class="panel-body">
                 {{#if server}} {{>serverSearch}} {{/if}}
                 {{#if uaid}} {{>uaidSearch}} {{/if}}
                 {{#if owner}} {{>ownerSearch}} {{/if}}
+                {{#if patch}} {{>patchSearch}} {{/if}}
             </div>
         </div>
     </div>
@@ -35,6 +38,7 @@
 
                 <div class="panel-body">
                     <input type="text" class="serverName" placeholder="{ServerName}">
+                    <label class="btn btn-xs btn-info" id="serverSearchButton">Search</label>
                 </div>
             </div>
         </div>
@@ -50,6 +54,8 @@
 
                 <div class="panel-body">
                     <input type="text" class="uaId" placeholder="{UAID-0000}">
+                    <label class="btn btn-xs btn-info" id="uaidSearchButton">Search</label>
+
                 </div>
             </div>
         </div>
@@ -66,6 +72,8 @@
 
                 <div class="panel-body">
                     <input type="text" class="ownerId" placeholder="{fx12345}">
+                    <label class="btn btn-xs btn-info" id="ownerSearchButton">Search</label>
+
                 </div>
             </div>
         </div>
@@ -73,6 +81,26 @@
 
 
 </template>
+
+<template name="patchSearch">
+
+    <div class="panel-body col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel-heading col-sm-12">
+                <h3 class="panel-title">Patch ID</h3>
+
+                <div class="panel-body">
+                    <input type="text" class="patchId" placeholder="{PATCH-#}">
+                    <label class="btn btn-xs btn-info" id="patchSearchButton">Search</label>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</template>
+
 
 <template name="searchResult">
     {{#each server in search_results}}
