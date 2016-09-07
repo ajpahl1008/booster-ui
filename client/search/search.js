@@ -1,8 +1,9 @@
 if (Meteor.isClient) {
 var serverInfo;
 
-    Template.search.onRendered(function () {
+    Template.searchResult.onRendered(function () {
             //clearDeck();
+        Session.set('retrievedServers','');
     });
 
     Template.search.events({
@@ -76,6 +77,12 @@ var serverInfo;
             }
         },
 
+        'click #rebootServer': function(){
+            sAlert.success("Rebooting Server");
+        } ,
+        'click #patchServer': function() {
+            sAlert.success("Patching Server");
+        }
 
    });
 

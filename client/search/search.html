@@ -110,15 +110,33 @@
                 <div class="panel-heading">
                     <span class="label label-danger pull-right">{{server.patchingStatus}}</span>
 
-                    <h3 class="panel-title">{{server.serverName}}</h3> {{#if server.patchingRequired}}
-                    <button type="button" class="btn btn-xs btn-warning glyphicon glyphicon-refresh  patchServer">
-                        Patch
-                    </button>
-                {{/if}} {{#if server.rebootRequired}}
-                    <button type="button" class="btn btn-xs btn-danger glyphicon glyphicon-refresh  rebootServer">
-                        Reboot
-                    </button>
-                {{/if}}
+                    <h3 class="panel-title">{{server.serverName}}</h3>
+                    {{#if server.changeRecordStatus}}
+                        {{#if server.patchingRequired}}
+                            <button type="button"
+                                    class="btn btn-xs btn-warning glyphicon glyphicon-refresh" id="patchServer">
+                                Patch
+                            </button>
+                        {{/if}} {{#if server.rebootRequired}}
+                        <button type="button"
+                                class="btn btn-xs btn-danger glyphicon glyphicon-refresh" id="rebootServer">Reboot
+                        </button>
+                    {{/if}}
+
+                    {{else}}
+                        {{#if server.patchingRequired}}
+                            <button type="button"
+                                    class="btn btn-xs btn-warning glyphicon glyphicon-refresh" disabled>
+                                Patch
+                            </button>
+                        {{/if}} {{#if server.rebootRequired}}
+                        <button type="button"
+                                class="btn btn-xs btn-danger glyphicon glyphicon-refresh rebootServer" disabled>Reboot
+                        </button>
+                    {{/if}}
+
+                    {{/if}}
+
                 </div>
 
                 <div class="panel-body">

@@ -4,7 +4,7 @@ Template.serverInfo.rendered =function serverInfoOnCreated() {
      Meteor.call('getEntirePatchingList', function(error, results) {
         serverInfo = results.data;
         console.log(serverInfo);
-        Session.set('targetServer', serverInfo);
+        Session.set('retrievedServers', serverInfo);
      });
 
   }
@@ -14,8 +14,19 @@ Template.serverInfo.rendered =function serverInfoOnCreated() {
 if (Meteor.isClient) {
   Template.serverInfo.helpers({
       server_list: function() {
-        return Session.get('targetServer');
-      }
+        return Session.get('retrievedServers');
+      },
+
   });
 
 }
+
+Template.serverInfo.events({
+   'click #rebootServer': function(){
+       sAlert.success("Rebooting Server");
+   } ,
+    'click #patchServer': function() {
+        sAlert.success("Patching Server");
+    }
+
+});
