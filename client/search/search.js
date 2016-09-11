@@ -1,48 +1,42 @@
 if (Meteor.isClient) {
 var serverInfo;
 
-    Template.searchResult.onRendered(function () {
-            //clearDeck();
-        Session.set('retrievedServers','');
+    Template.searchResult.onRendered(function (tmpl) {
+            clearDeck(tmpl);
+    });
+
+    Template.search.onRendered(function (tmpl) {
+        clearDeck(tmpl);
     });
 
     Template.search.events({
-    'change #serverRadioButton': function(e) {
+    'change #serverRadioButton': function() {
         Session.set('server', true);
         Session.set('uaid', false);
         Session.set('owner', false);
         Session.set('patch', false);
-        Session.set('searchData','');
-        Session.set('retrievedServers','');
     },
-    'change #uaidRadioButton' : function(e) {
+    'change #uaidRadioButton' : function() {
         Session.set('server', false);
         Session.set('uaid', true);
         Session.set('owner', false);
         Session.set('patch', false);
-        Session.set('searchData','');
-        Session.set('retrievedServers','');
     },
-    'change #ownerRadioButton' : function(e) {
+    'change #ownerRadioButton' : function() {
         Session.set('server', false);
         Session.set('uaid', false);
         Session.set('owner', true);
         Session.set('patch', false);
-        Session.set('searchData','');
-        Session.set('retrievedServers','');
+
     },
-    'change #patchRadioButton' : function(e) {
+    'change #patchRadioButton' : function() {
         Session.set('server', false);
         Session.set('uaid', false);
         Session.set('owner', false);
         Session.set('patch', true);
-        Session.set('searchData','');
-        Session.set('retrievedServers','');
     },
     'click #resetSearch' : function(e, tmpl) {
         clearDeck(tmpl);
-        Session.set('searchData','');
-        Session.set('retrievedServers','');
       },
     'click #ownerSearchButton, click #serverSearchButton, click #uaidSearchButton, click #patchSearchButton' : function (e, tmpl) {
         if (e.target.id == "serverSearchButton") {
@@ -119,7 +113,7 @@ clearDeck = function(tmpl) {
     }
 
     if(Session.get('uaid')) {
-        tmpl.find('input.uaId').value = '';
+        tmpl.find('.uaId').value = '';
     }
 
     if (Session.get('owner')) {
@@ -131,6 +125,7 @@ clearDeck = function(tmpl) {
 
     Session.set('searchData','');
     Session.set('retrievedServers', '');
+
 }
 
 searchServer = function(e, tmpl) {
@@ -157,7 +152,7 @@ searchUaid = function(e, tmpl) {
             if (results.data != '') {
                 Session.set('retrievedServers', results.data);
             } else {
-                sAlert.info('No servers found')
+                sAlert.info('No applications found')
             }
         });
     } else {
@@ -173,7 +168,7 @@ searchPatch = function(e,tmpl) {
             if (results.data != '') {
                 Session.set('retrievedServers', results.data);
             } else {
-                sAlert.info('No servers found')
+                sAlert.info('No patches found')
             }
         });
 
@@ -190,7 +185,7 @@ searchOwner = function(e,tmpl) {
             if (results.data != '') {
                 Session.set('retrievedServers', results.data);
             } else {
-                sAlert.info('No servers found')
+                sAlert.info('No owners found')
             }
         });
 
