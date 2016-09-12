@@ -1,0 +1,157 @@
+<template name="entry" xmlns="http://www.w3.org/1999/html">
+    <div class="page-header">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Manual Entry</h3>
+
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-ms btn-success btn-primary" id="serverLabel">
+                        <input type="radio" name="radioGroup" id="serverRadioButton">Server</label>
+                    <label class="btn btn-ms btn-success btn-primary" id="uaidLabel">
+                        <input type="radio" name="radioGroup" id="uaidRadioButton">App</label>
+                    <label class="btn btn-ms btn-success btn-primary" id="ownerLabel">
+                        <input type="radio" name="radioGroup" id="ownerRadioButton">Owner</label>
+                    <label class="btn btn-ms btn-success btn-primary" id="patchLabel">
+                        <input type="radio" name="radioGroup" id="patchRadioButton">Patch</label>
+                </div>
+            </div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+    </div>
+    {{#if server_entry}} {{>serverEntry}} {{/if}}
+    {{#if uaid_entry}} {{>uaidEntry}} {{/if}}
+    {{#if owner_entry}} {{>ownerEntry}} {{/if}}
+    {{#if patch_entry}} {{>patchEntry}} {{/if}}
+
+
+</template>
+
+
+<template name="serverEntry">
+    <div class="panel-body col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel-heading col-sm-12">
+                <h2 class="panel-title">Server Name</h2>
+                <div class="panel-body">
+                    <input type="text" class="serverName" placeholder="{server0000}">
+
+                </div>
+
+                <h2 class="panel-title">Operating System</h2>
+                <div class="panel-body">
+                    <input type="text" class="osName" placeholder="{aix}">
+                </div>
+
+                <h2 class="panel-title">Operating System Version</h2>
+                <div class="panel-body">
+                    <input type="text" class="osVersion" placeholder="{1.0}">
+                </div>
+
+                <h2 class="panel-title">Server Owner</h2>
+                <div class="panel-body">
+                    <input type="text" class="serverOwner" placeholder="{joe Schmoe}">
+                </div>
+
+                <h2 class="panel-title">Related Applications</h2>
+                <div class="panel-body">
+                    <input type="text" class="relatedApps" placeholder="{UAID-1111}">
+                </div>
+
+                <label class="btn btn-ms btn-info pull-left" id="serverEntryButton">Submit</label>
+                <label class="btn btn-ms btn-warning pull-left" id="resetServerEntry">Clear</label>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+
+
+<template name="uaidEntry">
+    <div class="panel-body col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel-heading col-sm-12">
+                <h3 class="panel-title">Application ID</h3>
+                <div class="panel-body">
+                    <input type="text" class="uaidId" placeholder="{UAID-0000}">
+                </div>
+
+                <h2 class="panel-title">Application Name</h2>
+                <div class="panel-body">
+                    <input type="text" class="uaidName" placeholder="{AwesomeApp}">
+                </div>
+
+                <h2 class="panel-title">Description</h2>
+                <div class="panel-body">
+                    <input type="text" class="uaidDescription" placeholder="{This app rocks}">
+                </div>
+
+                <h2 class="panel-title">Application Owner</h2>
+                <div class="panel-body">
+                    <input type="text" class="uaidOwner" placeholder="{joe Schmoe}">
+                </div>
+
+                <label class="btn btn-ms btn-info pull-left" id="uaidEntryButton">Submit</label>
+                <label class="btn btn-ms btn-warning pull-left" id="resetUaidEntry">Clear</label>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="ownerEntry">
+    <div class="panel-body col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel-heading col-sm-12">
+                <h3 class="panel-title">Owner ID</h3>
+                <div class="panel-body">
+                    <input type="text" class="ownerId" placeholder="{x00000}">
+                </div>
+
+                <h2 class="panel-title">Owner First Name</h2>
+                <div class="panel-body">
+                    <input type="text" class="ownerFirstName" placeholder="{Jose}">
+                </div>
+
+                <h2 class="panel-title">Owner Last Name</h2>
+                <div class="panel-body">
+                    <input type="text" class="ownerLastName" placeholder="{Garcia}">
+                </div>
+
+                <label class="btn btn-ms btn-info pull-left" id="ownerEntryButton">Submit</label>
+                <label class="btn btn-ms btn-warning pull-left" id="resetOwnerEntry">Clear</label>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="patchEntry">
+    <div class="panel-body col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel-heading col-sm-12">
+                <h3 class="panel-title">Patch ID</h3>
+                <div class="panel-body">
+                    <input type="text" class="patchId" placeholder="{PATCH-12345}">
+                </div>
+
+                <h2 class="panel-title">Platform</h2>
+                <div class="panel-body">
+                    <input type="text" class="patchPlatform" placeholder="{DOS}">
+                </div>
+
+                <h2 class="panel-title">Patch Description</h2>
+                <div class="panel-body">
+                    <textarea type="text" class="patchDescription" rows="3" style="width:100%" placeholder="{Garcia}"></textarea>
+                </div>
+
+                <label class="btn btn-ms btn-info pull-left" id="patchEntryButton">Submit</label>
+                <label class="btn btn-ms btn-warning pull-left" id="clearPatchEntry">Clear</label>
+
+            </div>
+        </div>
+    </div>
+</template>

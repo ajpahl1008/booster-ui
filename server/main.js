@@ -40,23 +40,33 @@ Meteor.methods({
         },
           getOwnerList: function() {
             this.unblock();
-            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/retrieve/owners/getAll');
+            return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/owners/getAll');
           },
           getUaidList: function() {
             this.unblock();
-            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/retrieve/uaids/getAll');
+            return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/uaids/getAll');
           },
           getPatchList: function() {
             this.unblock();
-            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/retrieve/patches/getAll');
+            return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/patches/getAll');
           },
           getPatchById: function(patchId) {
             this.unblock();
-            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/retrieve/patches/getPatchById' + patchId);
+            return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/patches/getPatchById' + patchId);
           },
           getPatchByPlatform: function(platform) {
             this.unblock();
-            return Meteor.http.call("GET", URL_PREFIX + 'booster-services/retrieve/patches/getPatchesByPlatform' + platform);
-          }
+            return Meteor.http.call("GET", URL_PREFIX + '/booster-services/retrieve/patches/getPatchesByPlatform' + platform);
+          },
+          addPatch: function(patchInfo) {
+              this.unblock();
+              return Meteor.http.call("POST", URL_PREFIX + '/booster-services/update/patches/addPatch' , {
+                  data: patchInfo,
+                  headers: {
+                      "content-type":"application/json",
+                      "Accept":"application/json"
+                  }
+              });
+           },
 
   });
