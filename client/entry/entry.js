@@ -57,6 +57,7 @@ Template.entry.events({
                     Session.set('savedPatch', results.data);
                     console.log(results.data);
                     sAlert.success(results.data.success);
+                    clearPatchUpdateEntry(e, template);
                 }
                 if (results.data.error != '') {
                     sAlert.error(results.data.error);
@@ -65,10 +66,14 @@ Template.entry.events({
 
     },
     'click #clearPatchEntry': function (e, template) {
-        template.find('.patchId').value = '';
-        template.find('.patchPlatform').value = '';
-        template.find('.patchDescription').value = '';
+        clearPatchUpdateEntry(e, template);
 
     },
 
 });
+
+ clearPatchUpdateEntry = function(e, template){
+     template.find('form.ui.form').reset();
+     template.find('form.ui.form').reset();
+
+}
