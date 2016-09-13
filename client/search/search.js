@@ -1,11 +1,11 @@
 if (Meteor.isClient) {
 var serverInfo;
 
-    Template.searchResult.onRendered(function (tmpl) {
+    Template.searchResult.onRendered(function (e,tmpl) {
             clearDeck(tmpl);
     });
 
-    Template.search.onRendered(function (tmpl) {
+    Template.search.onRendered(function (e, tmpl) {
         clearDeck(tmpl);
     });
 
@@ -125,6 +125,10 @@ clearDeck = function(tmpl) {
 
     Session.set('searchData','');
     Session.set('retrievedServers', '');
+    Session.set('server', false);
+    Session.set('uaid', false);
+    Session.set('owner', false);
+    Session.set('patch', false);
 
 }
 
