@@ -8,8 +8,8 @@
                 <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-ms btn-success btn-primary" id="serverLabel">
                         <input type="radio" name="radioGroup" id="serverRadioButton">Server</label>
-                    <label class="btn btn-ms btn-success btn-primary" id="uaidLabel">
-                        <input type="radio" name="radioGroup" id="uaidRadioButton">App</label>
+                    <label class="btn btn-ms btn-success btn-primary" id="applicationLabel">
+                        <input type="radio" name="radioGroup" id="applicationRadioButton">App</label>
                     <label class="btn btn-ms btn-success btn-primary" id="ownerLabel">
                         <input type="radio" name="radioGroup" id="ownerRadioButton">Owner</label>
                     <label class="btn btn-ms btn-success btn-primary" id="patchLabel">
@@ -22,7 +22,7 @@
         </div>
     </div>
     {{#if server_entry}} {{>serverEntry}} {{/if}}
-    {{#if uaid_entry}} {{>uaidEntry}} {{/if}}
+    {{#if uaid_entry}} {{>applicationEntry}} {{/if}}
     {{#if owner_entry}} {{>ownerEntry}} {{/if}}
     {{#if patch_entry}} {{>patchEntry}} {{/if}}
 
@@ -34,6 +34,8 @@
     <div class="panel-body col-sm-12">
         <div class="panel panel-info">
             <div class="panel-heading col-sm-12">
+                <form class="ui form servers">
+
                 <h2 class="panel-title">Server Name</h2>
                 <div class="panel-body">
                     <input type="text" class="serverName" placeholder="{server0000}">
@@ -52,7 +54,7 @@
 
                 <h2 class="panel-title">Server Owner</h2>
                 <div class="panel-body">
-                    <input type="text" class="serverOwner" placeholder="{joe Schmoe}">
+                    <input type="text" class="serverOwner" placeholder="{x123455}">
                 </div>
 
                 <h2 class="panel-title">Related Applications</h2>
@@ -61,8 +63,8 @@
                 </div>
 
                 <label class="btn btn-ms btn-info pull-left" id="serverEntryButton">Submit</label>
-                <label class="btn btn-ms btn-warning pull-left" id="resetServerEntry">Clear</label>
-
+                <label class="btn btn-ms btn-warning pull-left" id="clearServerEntry">Clear</label>
+                </form>
             </div>
         </div>
     </div>
@@ -70,10 +72,11 @@
 
 
 
-<template name="uaidEntry">
+<template name="applicationEntry">
     <div class="panel-body col-sm-12">
         <div class="panel panel-info">
             <div class="panel-heading col-sm-12">
+                <form class="ui form applications">
                 <h3 class="panel-title">Application ID</h3>
                 <div class="panel-body">
                     <input type="text" class="uaidId" placeholder="{UAID-0000}">
@@ -81,22 +84,22 @@
 
                 <h2 class="panel-title">Application Name</h2>
                 <div class="panel-body">
-                    <input type="text" class="uaidName" placeholder="{AwesomeApp}">
+                    <input type="text" class="applicationName" placeholder="{AwesomeApp}">
                 </div>
 
                 <h2 class="panel-title">Description</h2>
                 <div class="panel-body">
-                    <input type="text" class="uaidDescription" placeholder="{This app rocks}">
+                    <input type="text" class="applicationDescription" placeholder="{This app rocks}">
                 </div>
 
                 <h2 class="panel-title">Application Owner</h2>
                 <div class="panel-body">
-                    <input type="text" class="uaidOwner" placeholder="{joe Schmoe}">
+                    <input type="text" class="applicationOwner" placeholder="{joe Schmoe}">
                 </div>
 
-                <label class="btn btn-ms btn-info pull-left" id="uaidEntryButton">Submit</label>
-                <label class="btn btn-ms btn-warning pull-left" id="resetUaidEntry">Clear</label>
-
+                <label class="btn btn-ms btn-info pull-left" id="applicationEntryButton">Submit</label>
+                <label class="btn btn-ms btn-warning pull-left" id="resetApplicationEntry">Clear</label>
+                </form>
             </div>
         </div>
     </div>
