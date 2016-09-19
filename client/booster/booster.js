@@ -5,11 +5,11 @@ var serverInfo;
             clearDeck(tmpl);
     });
 
-    Template.search.onRendered(function (e, tmpl) {
+    Template.booster.onRendered(function (e, tmpl) {
         clearDeck(tmpl);
     });
 
-    Template.search.events({
+    Template.booster.events({
     'change #serverRadioButton': function() {
         Session.set('server', true);
         Session.set('uaid', false);
@@ -80,7 +80,7 @@ var serverInfo;
 
    });
 
-    Template.search.helpers({
+    Template.booster.helpers({
         server: function() {
             return Session.get('server');
         },
