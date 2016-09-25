@@ -96,6 +96,13 @@ var serverInfo;
 
     });
 
+    Template.searchResult.helpers({
+        search_results: function() {
+            if (Session.get('retrievedServers') != '') {
+                return Session.get('retrievedServers');
+            }
+        },
+    });
 
 }
 
