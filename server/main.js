@@ -88,5 +88,15 @@ Meteor.methods({
             }
         });
     },
+    addOwner: function (ownerInfo) {
+        this.unblock();
+        return Meteor.http.call("POST", URL_PREFIX + '/booster-services/update/owners/addOwner', {
+            data: ownerInfo,
+            headers: {
+                "content-type": "application/json",
+                "Accept": "application/json"
+            }
+        });
+    },
 
 });

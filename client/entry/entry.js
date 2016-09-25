@@ -129,8 +129,32 @@ Template.entry.events({
         clearApplicationUpdateEntry(e, template);
 
     },
+    'click #ownerEntryButton': function (e, template) {
+        var id = template.find('.ownerId').value;
+        var ownerFirstName = template.find('.ownerFirstName').value;
+        var ownerLastName = template.find('.ownerLastName').value;
+        var ownerInfo = {id, ownerFirstName, ownerLastName};
+        if ( id == '' || ownerFirstName == '' || ownerLastName == '') {
+            sAlert.warning("Incomplete Data");
+            return;
+        }
+        Meteor.call('addOwner', ownerInfo, function (error, results) {
+            if (results.data.success != '') {
+                Session.set('savedOwner', results.data);
+                console.log(results.data);
+                sAlert.success(results.data.success);
+                clearOwnerUpdateEntry(e, template);
+            }
+            if (results.data.error != '') {
+                sAlert.error(results.data.error);
+            }
+        });
 
+    },
+    'click #clearOwnerEntry': function (e, template) {
+        clearOwnerUpdateEntry(e, template);
 
+    },
 
 });
 
@@ -147,6 +171,12 @@ clearServerUpdateEntry = function(e, template){
 }
 
 clearApplicationUpdateEntry = function(e, template){
+    template.find('form.ui.form').reset();
+    template.find('form.ui.form').reset();
+
+}
+
+clearOwnerUpdateEntry = function(e, template){
     template.find('form.ui.form').reset();
     template.find('form.ui.form').reset();
 
